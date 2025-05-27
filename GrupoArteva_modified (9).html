@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grupo Arteva</title>
+<!-- Importação da fonte Montserrat do Google Fonts, comum em designs refinados e modernos -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Reset de CSS básico para garantir consistência */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif; /* Fonte 'Montserrat' para um visual limpo e refinado */
+            background: linear-gradient(to bottom, #444444, #111111); /* Gradiente de cinza escuro para preto, ligeiramente clareado */
+            color: #f0f0f0; /* Cor do texto principal para contraste */
+            min-height: 100vh; /* Garante que o gradiente cubra toda a altura da página */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px; /* Preenchimento para evitar que o conteúdo cole nas bordas */
+        }
+
+        .container {
+            text-align: center; /* Centraliza o conteúdo dentro do container */
+            background-color: rgba(255, 255, 255, 0.07); /* Fundo sutilmente translúcido para o conteúdo, um pouco mais visível */
+            padding: 40px;
+            border-radius: 10px; /* Bordas arredondadas para um visual mais suave */
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
+            max-width: 900px; /* Largura máxima do container */
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            /* Gradiente para o título: do branco puro para um cinza muito claro, destacando o branco */
+            background-image: linear-gradient(to right, #FFFFFF, #E0E0E0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; /* Fallback */
+            letter-spacing: 2px; /* Espaçamento entre letras para um toque refinado */
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra sutil para o título */
+        }
+
+        .separator {
+            width: 250px; /* Largura da linha do separador */
+            height: 2px; /* Espessura da linha */
+            /* Gradiente original, sem dourado */
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+            margin: 40px auto; /* Centraliza o separador e adiciona espaço vertical */
+            border-radius: 1px; /* Cantos arredondados para suavidade */
+        }
+
+        .links-container {
+            display: flex;
+            flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+            justify-content: center; /* Centraliza os itens (store-card) horizontalmente */
+            gap: 50px; /* Espaço entre os itens (store-card) */
+            margin-top: 40px;
+            margin-bottom: 50px; /* Ajustado para acomodar remoção da linha inferior */
+        }
+
+        .store-card {
+            display: flex;
+            flex-direction: column; /* Link, cidade e bairro empilhados verticalmente */
+            align-items: center; /* Centraliza conteúdo dentro do card */
+            text-align: center;
+        }
+
+        .store-link {
+            text-decoration: none; /* Remove o sublinhado padrão do link */
+            color: #ffffff; /* Cor do nome do link agora bem clara */
+            display: flex;
+            flex-direction: column; /* Organiza imagem e texto em coluna */
+            align-items: center; /* Centraliza verticalmente o conteúdo de cada link */
+            transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease; /* Transição suave para efeitos de hover */
+            padding: 15px;
+            border-radius: 8px;
+            /* Fundo cinza escuro para o terceiro link */
+            background-color: #222222;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra para cada bloco de link (padrão) */
+        }
+
+            /* Estilo específico para os links azulados */
+            .store-link.blue-gradient-link {
+                background: linear-gradient(to bottom, #1a2a3a, #0d1a27); /* Gradiente azul escuro */
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(26, 42, 58, 0.7); /* Sombra ajustada para o azul */
+            }
+
+            .store-link:hover {
+                transform: translateY(-5px); /* Efeito de levantar no hover */
+                color: #ffffff; /* Continua branco no hover */
+                background-color: rgba(255, 255, 255, 0.1); /* Fundo um pouco mais visível no hover (padrão) */
+            }
+
+            /* Efeito de hover específico para os links azulados */
+            .store-link.blue-gradient-link:hover {
+                background: linear-gradient(to bottom, #2a3a4a, #1d2a37); /* Ligeiramente mais claro no hover */
+            }
+
+            /* Efeito de hover para o link cinza escuro */
+            .store-link:not(.blue-gradient-link):hover {
+                background-color: #333333; /* Um cinza ligeiramente mais claro no hover para o link cinza escuro */
+            }
+
+            .store-link img {
+                width: 120px; /* Tamanho fixo para as logos */
+                height: auto; /* Mantém a proporção da imagem */
+                margin-bottom: 15px;
+                border-radius: 5px; /* Leve arredondamento para a imagem */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para a imagem */
+                filter: brightness(0.7); /* Brilho reduzido para escurecer os brancos das imagens */
+            }
+
+            .store-link span {
+                font-size: 1.2em;
+                font-weight: 400;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            }
+
+        .store-city {
+            font-size: 0.8em; /* Tamanho menor para a cidade */
+            color: #888888; /* Cor cinza escuro para a cidade, ligeiramente clareado */
+            margin-top: 10px; /* Espaço entre o link e a cidade */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .store-neighborhood {
+            font-size: 0.7em; /* Tamanho ainda menor para o bairro */
+            color: #777777; /* Cor cinza mais escuro para o bairro, ligeiramente clareado */
+            margin-top: 3px; /* Pequeno espaço entre cidade e bairro */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cores específicas para cidade e bairro dos links azulados */
+        .store-city.blue-text {
+            color: #5c7a8a; /* Tom de azul mais escuro para a cidade, ligeiramente clareado */
+        }
+
+        .store-neighborhood.blue-text {
+            color: #4c6a7a; /* Tom de azul mais escuro para o bairro, ligeiramente clareado */
+        }
+
+        .contact-link {
+            margin-top: 50px; /* Ajustado para acomodar remoção da linha inferior */
+            font-size: 0.9em; /* Tamanho da fonte do e-mail diminuída */
+            /* Gradiente no texto do e-mail, ligeiramente clareado */
+            background-image: linear-gradient(to right, #666666, #A0A0A0);
+            -webkit-background-clip: text; /* Para navegadores WebKit */
+            background-clip: text;
+            -webkit-text-fill-color: transparent; /* Para navegadores WebKit */
+            color: transparent; /* Fallback para navegadores que não suportam */
+            text-decoration: none;
+            transition: color 0.3s ease; /* Transição para o hover */
+        }
+
+            .contact-link:hover {
+                -webkit-text-fill-color: #ffffff; /* Cor branca no hover */
+                color: #ffffff; /* Cor branca no hover */
+                text-decoration: underline;
+            }
+
+        /* Responsividade básica para telas menores */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .links-container {
+                flex-direction: column; /* Links em coluna em telas menores */
+                gap: 30px;
+            }
+
+            .store-link img {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .store-link span {
+                font-size: 1em;
+            }
+
+            .store-city {
+                font-size: 0.7em; /* Ainda menor em telas muito pequenas */
+            }
+
+            .store-neighborhood {
+                font-size: 0.6em; /* Ainda menor em telas muito pequenas */
+            }
+
+            .contact-link {
+                font-size: 0.8em; /* Ainda menor em telas muito pequenas */
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>Grupo Arteva</h1>
+<div class="separator"></div> <!-- Separador refinado entre o título e os links -->
+<div class="links-container">
+<div class="store-card">
+<a class="store-link blue-gradient-link" href="https://www.rajamoveis.com.br" target="_blank">
+<!-- Substitua o src pela URL real do logo da Raja Móveis -->
+<img alt="Logo Raja Móveis" src="https://rajamoveis.com.br/_images/geral/logo-italinea.svg"/>
+<span>Raja Móveis</span>
+</a>
+<span class="store-city blue-text">Belo Horizonte/MG</span>
+<span class="store-neighborhood blue-text">São Bento</span>
+</div>
+<div class="store-card">
+<a class="store-link blue-gradient-link" href="https://www.planejadosrc.com.br" target="_blank">
+<!-- Substitua o src pela URL real do logo da RC Planejados -->
+<img alt="Logo RC Planejados" src="https://rajamoveis.com.br/_images/geral/logo-italinea.svg"/>
+<span>Planejados RC</span>
+</a>
+<span class="store-city blue-text">Nova Lima/MG</span>
+<span class="store-neighborhood blue-text">Shopping Ponto Verde</span>
+</div>
+<div class="store-card">
+<a class="store-link" href="https://www.artevaplanejados.com.br" target="_blank">
+<!-- Substitua o src pela URL real do logo da Criare BH Arteva -->
+<img alt="Logo Criare BH Arteva" src="https://artevaplanejados.com.br/_images/logo-rodape.svg"/>
+<span>Criare BH Arteva</span>
+</a>
+<span class="store-city">Belo Horizonte/MG</span>
+<span class="store-neighborhood">Estoril</span>
+</div>
+</div><p style="font-size: 1.1em; color: #cccccc; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-style: italic; background: -webkit-linear-gradient(white, lightgray); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Sempre uma jornada tranquila.</p>
+<a class="contact-link" href="mailto:contato@grupoarteva.com.br">contato@grupoarteva.com.br</a>
+</div>
+</body>
+</html>
